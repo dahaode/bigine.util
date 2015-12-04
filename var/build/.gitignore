@@ -1,0 +1,7 @@
+*.*
+
+!.gitignore
+!bigine.util.d.ts
+!bigine.util.js
+!bigine.util.js.map
+!xhr.js

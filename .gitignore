@@ -1,0 +1,14 @@
+/*
+
+!.gitignore
+!gulpfile.js
+!LICENSE
+!package.json
+!README.md
+!tsconfig.json
+!tsd.json
+!tslint.json
+
+!include/
+!lib/
+!var/
