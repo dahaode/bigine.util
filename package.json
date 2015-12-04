@@ -1,6 +1,6 @@
 {
   "name": "bigine.util",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bigine 引擎 Util 包。",
   "main": "var/build/bigine.util.js",
   "scripts": {
@@ -19,6 +19,15 @@
     "url": "https://github.com/dahaode/bigine.util/issues"
   },
   "homepage": "https://github.com/dahaode/bigine.util#readme",
+  "files": [
+    "include",
+    "var/build/bigine.util.d.ts",
+    "var/build/bigine.util.js*",
+    "var/build/xhr.js"
+  ],
+  "typescript": {
+    "definition": "var/build/bigine.util.d.ts"
+  },
   "devDependencies": {
     "browserify": "^12.0.1",
     "gulp": "^3.9.0",
