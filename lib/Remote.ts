@@ -7,12 +7,11 @@
  * @file      Remote.ts
  */
 
+/// <reference path="../include/XDomainRequest.d.ts" />
 /// <reference path="ENV.ts" />
 /// <reference path="ISuccessCallback.ts" />
 /// <reference path="IFailureCallback.ts" />
 /// <reference path="_iterator.ts" />
-
-declare var XDomainRequest: typeof XMLHttpRequest;
 
 namespace Util {
     var xdrs: any[] = [];

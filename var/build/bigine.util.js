@@ -256,6 +256,7 @@ var Util;
  * @license   GPL-3.0
  * @file      Remote.ts
  */
+/// <reference path="../include/XDomainRequest.d.ts" />
 /// <reference path="ENV.ts" />
 /// <reference path="ISuccessCallback.ts" />
 /// <reference path="IFailureCallback.ts" />
@@ -354,7 +355,7 @@ var Util;
 /// <reference path="Remote.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.1.0';
+    Util.version = '0.1.2';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map

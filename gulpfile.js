@@ -39,7 +39,9 @@ $gulp.task('tsd', ['lint'], function () {
                 removeComments: true
             })));
     return ts.dts
-        .pipe($insert.append('declare module "bigine.util" {\n    export = Util;\n}\n'))
+        .pipe($replace('}\ndeclare namespace Util {\n', ''))
+        .pipe($replace('\ndeclare namespace Util {\n', '\ndeclare namespace __Bigine_Util {\n'))
+        .pipe($insert.append('\ndeclare module "bigine.util" {\n    export = __Bigine_Util;\n}\n'))
         .pipe($gulp.dest('.'));
 });
 
