@@ -21,7 +21,7 @@ declare namespace __Bigine_Util {
     function clone<T>(orig: T[]): T[];
     function clone<T>(orig: T): T;
     namespace Q {
-        function every<T, U>(array: T[], iterator: Util.IArrayIterator<T, U | Thenable<U>>, $this?: any): Promise<U>;
+        function every<T, U>(array: T[], iterator: IArrayIterator<T, U | Thenable<U>>, $this?: any): Promise<U>;
     }
     interface IEnvType {
         Window: boolean;

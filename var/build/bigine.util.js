@@ -107,7 +107,7 @@ var Util;
         if (orig instanceof Array)
             return orig.slice(0);
         var dolly = {};
-        Util.each(orig, function (value, key) {
+        each(orig, function (value, key) {
             dolly[key] = clone(value);
         });
         return dolly;

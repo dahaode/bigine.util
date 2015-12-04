@@ -18,7 +18,7 @@ namespace Util {
         /**
          * 顺序遍历数组。
          */
-        export function every<T, U>(array: T[], iterator: Util.IArrayIterator<T, U | Thenable<U>>, $this?: any): Promise<U> {
+        export function every<T, U>(array: T[], iterator: IArrayIterator<T, U | Thenable<U>>, $this?: any): Promise<U> {
             $this = $this || array;
             var q: Promise<U>;
             each(array, (element: T, index: number) => {

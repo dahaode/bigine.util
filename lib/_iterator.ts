@@ -104,7 +104,7 @@ namespace Util {
         if (orig instanceof Array)
             return (<any[]> orig).slice(0);
         var dolly: IHashTable<any> = {};
-        Util.each(orig, (value: any, key: string) => {
+        each(orig, (value: any, key: string) => {
             dolly[key] = clone(value);
         });
         return dolly;

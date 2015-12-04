@@ -61,7 +61,7 @@ namespace Util {
                 xhr = new XMLHttpRequest();
             xhr.onload = () => {
                 try {
-                    var resp: Util.IHashTable<any> = <Util.IHashTable<any>> JSON.parse(xhr.responseText);
+                    var resp: IHashTable<any> = <IHashTable<any>> JSON.parse(xhr.responseText);
                     if ('reason' in resp)
                         throw new Error(<string> resp['reason']);
                     if ('status' in xhr && 200 != xhr.status)
