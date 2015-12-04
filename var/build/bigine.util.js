@@ -355,7 +355,7 @@ var Util;
 /// <reference path="Remote.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.1.2';
+    Util.version = '0.1.3';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map
