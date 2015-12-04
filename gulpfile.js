@@ -1,5 +1,6 @@
 var $gulp = require('gulp'),
     $lint = require('gulp-tslint'),
+    $del = require('del'),
     $smap = require('gulp-sourcemaps'),
     $tsc = require('gulp-typescript'),
     $replace = require('gulp-replace'),
@@ -10,11 +11,16 @@ var $gulp = require('gulp'),
     $uglify = require('gulp-uglify');
 
 $gulp.task('lint', function () {
-    return $gulp.src([
-        'lib/*.ts'
-    ])
+    return $gulp.src('lib/*.ts')
         .pipe($lint())
         .pipe($lint.report('prose'));
+});
+
+$gulp.task('clear', function () {
+    $del([
+        'var/build/*.*.*.js',
+        'var/build/*.*.*.min.js*'
+    ]);
 });
 
 $gulp.task('dist', function () {
