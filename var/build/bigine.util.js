@@ -344,6 +344,157 @@ var Util;
     })(Remote = Util.Remote || (Util.Remote = {}));
 })(Util || (Util = {}));
 /**
+ * 声明日志接口规范。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      ILogger.ts
+ */
+var Util;
+(function (Util) {
+    var ILogger;
+    (function (ILogger) {
+        /**
+         * 日志等级。
+         */
+        (function (Level) {
+            /**
+             * 调试。
+             */
+            Level[Level["Debug"] = 0] = "Debug";
+            /**
+             * 信息。
+             */
+            Level[Level["Info"] = 1] = "Info";
+            /**
+             * 警告。
+             */
+            Level[Level["Warn"] = 2] = "Warn";
+            /**
+             * 错误。
+             */
+            Level[Level["Error"] = 3] = "Error";
+        })(ILogger.Level || (ILogger.Level = {}));
+        var Level = ILogger.Level;
+    })(ILogger = Util.ILogger || (Util.ILogger = {}));
+})(Util || (Util = {}));
+/**
+ * 定义控制台日志记录器组件。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      ConsoleLogger.ts
+ */
+/// <reference path="ILogger.ts" />
+var Util;
+(function (Util) {
+    /**
+     * 实例。
+     */
+    var instance;
+    var ConsoleLogger = (function () {
+        /**
+         * 构造函数。
+         */
+        function ConsoleLogger() {
+            this._l = Util.ILogger.Level.Error;
+            this._c = 'undefined' != typeof console ?
+                console :
+                undefined;
+        }
+        /**
+         * 获取实例。
+         */
+        ConsoleLogger.singleton = function () {
+            if (!instance)
+                instance = new ConsoleLogger();
+            return instance;
+        };
+        /**
+         * 调试。
+         */
+        ConsoleLogger.prototype.d = function () {
+            var parts = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                parts[_i - 0] = arguments[_i];
+            }
+            if (this._l > Util.ILogger.Level.Debug || !this._c)
+                return;
+            this.p(this._c.debug || this._c.log, parts);
+        };
+        /**
+         * 信息。
+         */
+        ConsoleLogger.prototype.i = function () {
+            var parts = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                parts[_i - 0] = arguments[_i];
+            }
+            if (this._l > Util.ILogger.Level.Info || !this._c)
+                return;
+            this.p(this._c.info || this._c.log, parts);
+        };
+        /**
+         * 警告。
+         */
+        ConsoleLogger.prototype.w = function () {
+            var parts = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                parts[_i - 0] = arguments[_i];
+            }
+            if (this._l > Util.ILogger.Level.Warn || !this._c)
+                return;
+            this.p(this._c.warn || this._c.log, parts);
+        };
+        /**
+         * 错误。
+         */
+        ConsoleLogger.prototype.e = function () {
+            var parts = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                parts[_i - 0] = arguments[_i];
+            }
+            if (this._c)
+                this.p(this._c.error, 1 < parts.length ? parts : [parts[0]['stack'] || parts[0]]);
+        };
+        /**
+         * 分组。
+         */
+        ConsoleLogger.prototype.o = function (title) {
+            if (Util.ILogger.Level.Debug == this._l && this._c)
+                this.p(this._c.group, [title]);
+        };
+        /**
+         * 分组结束。
+         */
+        ConsoleLogger.prototype.c = function (title) {
+            if (Util.ILogger.Level.Debug == this._l && this._c)
+                this.p(this._c.groupEnd, [title]);
+        };
+        /**
+         * 设置日志等级。
+         */
+        ConsoleLogger.prototype.l = function (level) {
+            this._l = level;
+            return this;
+        };
+        /**
+         * 打印。
+         */
+        ConsoleLogger.prototype.p = function (method, contents) {
+            if (!method)
+                return;
+            if ('apply' in method)
+                return method.apply(this._c, contents);
+            method(contents.join(' '));
+        };
+        return ConsoleLogger;
+    })();
+    Util.ConsoleLogger = ConsoleLogger;
+})(Util || (Util = {}));
+/**
  * 定义包主程序文件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
@@ -353,6 +504,7 @@ var Util;
  */
 /// <reference path="Q.ts" />
 /// <reference path="Remote.ts" />
+/// <reference path="ConsoleLogger.ts" />
 var Util;
 (function (Util) {
     Util.version = '0.1.3';

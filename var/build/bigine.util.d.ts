@@ -55,6 +55,37 @@ declare namespace __Bigine_Util {
         }
         function http<T>(method: Method, url: string, data: IHashTable<number | string>, onSuccess: ISuccessCallback<T>, onFailure: IFailureCallback): void;
     }
+    interface ILogger {
+        d(...parts: any[]): void;
+        i(...parts: any[]): void;
+        w(...parts: any[]): void;
+        e(...parts: any[]): void;
+        o(title: string): void;
+        c(title: string): void;
+        l(level: ILogger.Level): ILogger;
+    }
+    namespace ILogger {
+        enum Level {
+            Debug = 0,
+            Info = 1,
+            Warn = 2,
+            Error = 3,
+        }
+    }
+    class ConsoleLogger implements ILogger {
+        private _l;
+        private _c;
+        static singleton(): ConsoleLogger;
+        constructor();
+        d(...parts: any[]): void;
+        i(...parts: any[]): void;
+        w(...parts: any[]): void;
+        e(...parts: any[]): void;
+        o(title: string): void;
+        c(title: string): void;
+        l(level: ILogger.Level): ConsoleLogger;
+        private p(method, contents);
+    }
     var version: string;
 }
 
