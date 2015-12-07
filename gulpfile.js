@@ -8,7 +8,8 @@ var $gulp = require('gulp'),
     $browserify = require('browserify'),
     $source = require('vinyl-source-stream'),
     $buffer = require('vinyl-buffer'),
-    $uglify = require('gulp-uglify');
+    $uglify = require('gulp-uglify'),
+    pkg = require('./package.json');
 
 $gulp.task('lint', function () {
     return $gulp.src('lib/*.ts')
@@ -24,8 +25,7 @@ $gulp.task('clear', function () {
 });
 
 $gulp.task('dist', function () {
-    var pkg = require('./package.json'),
-        ts = $gulp.src('lib/@module.ts')
+    var ts = $gulp.src('lib/@module.ts')
             .pipe($smap.init())
             .pipe($tsc($tsc.createProject('tsconfig.json', {
                 outFile: pkg.name + '.js'
@@ -38,8 +38,7 @@ $gulp.task('dist', function () {
 });
 
 $gulp.task('tsd', ['lint'], function () {
-    var pkg = require('./package.json'),
-        ts = $gulp.src('lib/@module.ts')
+    var ts = $gulp.src('lib/@module.ts')
             .pipe($tsc($tsc.createProject('tsconfig.json', {
                 declaration: true,
                 removeComments: true
@@ -52,7 +51,6 @@ $gulp.task('tsd', ['lint'], function () {
 });
 
 $gulp.task('bundle', ['dist'], function () {
-    var pkg = require('./package.json');
     return $browserify({
             detectGlobals: false
         })
@@ -66,7 +64,6 @@ $gulp.task('bundle', ['dist'], function () {
 });
 
 $gulp.task('minify', ['dist'], function () {
-    var pkg = require('./package.json');
     return $browserify({
             debug: true,
             detectGlobals: false
