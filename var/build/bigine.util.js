@@ -495,6 +495,42 @@ var Util;
     Util.ConsoleLogger = ConsoleLogger;
 })(Util || (Util = {}));
 /**
+ * 声明事件元信息接口规范。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      IEventMetas.ts
+ */
+/// <reference path="IHashTable.ts" />
+/**
+ * 声明事件接口规范。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      IEvent.ts
+ */
+/// <reference path="IEventMetas.ts" />
+/**
+ * 声明事件监听函数接口规范。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      IEventListener.ts
+ */
+/// <reference path="IEvent.ts" />
+/**
+ * 声明事件宿主接口规范。
+ *
+ * @author    郑煜宇 <yzheng@atfacg.com>
+ * @copyright © 2015 Dahao.de
+ * @license   GPL-3.0
+ * @file      IEmittable.ts
+ */
+/// <reference path="IEventListener.ts" />
+/**
  * 定义包主程序文件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
@@ -505,9 +541,10 @@ var Util;
 /// <reference path="Q.ts" />
 /// <reference path="Remote.ts" />
 /// <reference path="ConsoleLogger.ts" />
+/// <reference path="IEmittable.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.1.3';
+    Util.version = '0.2.0';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map

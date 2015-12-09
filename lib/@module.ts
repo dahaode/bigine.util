@@ -10,6 +10,7 @@
 /// <reference path="Q.ts" />
 /// <reference path="Remote.ts" />
 /// <reference path="ConsoleLogger.ts" />
+/// <reference path="IEmittable.ts" />
 
 namespace Util {
     export var version: string = '${BIGINE_UTIL_VERSION}';

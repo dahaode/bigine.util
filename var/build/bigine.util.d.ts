@@ -86,6 +86,21 @@ declare namespace __Bigine_Util {
         l(level: ILogger.Level): ConsoleLogger;
         private p(method, contents);
     }
+    interface IEventMetas<T> extends IHashTable<any> {
+        target: T;
+    }
+    interface IEvent<T> {
+        target: T;
+        gT(): string;
+    }
+    interface IEventListener<T> {
+        (event: IEvent<T>): void;
+    }
+    interface IEmittable {
+        addEventListener<T>(type: string, listener: IEventListener<T>): IEmittable;
+        removeEventListener<T>(type: string, listener: IEventListener<T>): IEmittable;
+        dispatchEvent<T>(event: IEvent<T>): IEmittable;
+    }
     var version: string;
 }
 
