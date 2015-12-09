@@ -1,27 +1,15 @@
 var $gulp = require('gulp'),
     $lint = require('gulp-tslint'),
-    $del = require('del'),
     $smap = require('gulp-sourcemaps'),
     $tsc = require('gulp-typescript'),
     $replace = require('gulp-replace'),
     $insert = require('gulp-insert'),
-    $browserify = require('browserify'),
-    $source = require('vinyl-source-stream'),
-    $buffer = require('vinyl-buffer'),
-    $uglify = require('gulp-uglify'),
     pkg = require('./package.json');
 
 $gulp.task('lint', function () {
     return $gulp.src('lib/*.ts')
         .pipe($lint())
         .pipe($lint.report('prose'));
-});
-
-$gulp.task('clear', function () {
-    $del([
-        'var/build/*.*.*.js',
-        'var/build/*.*.*.min.js*'
-    ]);
 });
 
 $gulp.task('dist', function () {
@@ -50,41 +38,8 @@ $gulp.task('tsd', ['lint'], function () {
         .pipe($gulp.dest('.'));
 });
 
-$gulp.task('bundle', ['dist'], function () {
-    return $browserify({
-            detectGlobals: false
-        })
-        .require('./var/build/' + pkg.name, {
-            expose: pkg.name
-        })
-        .exclude('./xhr')
-        .bundle()
-        .pipe($source(pkg.version + '.js'))
-        .pipe($gulp.dest('var/build'));
-});
-
-$gulp.task('minify', ['dist'], function () {
-    return $browserify({
-            debug: true,
-            detectGlobals: false
-        })
-        .require('./var/build/' + pkg.name, {
-            expose: pkg.name
-        })
-        .exclude('./xhr')
-        .bundle()
-        .pipe($source(pkg.version + '.min.js'))
-        .pipe($buffer())
-        .pipe($smap.init({
-            loadMaps: true
-        }))
-        .pipe($uglify())
-        .pipe($smap.write('.'))
-        .pipe($gulp.dest('var/build'));
-});
-
 $gulp.task('watch', function () {
     return $gulp.watch('lib/*.ts', ['tsd', 'dist']);
 });
 
-$gulp.task('default', ['tsd', 'minify']);
+$gulp.task('default', ['tsd', 'dist']);
