@@ -26,8 +26,10 @@
     "var/build/xhr.js"
   ],
   "typescript": {
+    "main": "lib/@module.ts",
     "definition": "var/build/bigine.util.d.ts"
   },
+  "typings": "var/build/bigine.util.d.ts",
   "dependencies": {
     "es6-promise": "^3.0.2"
   },
