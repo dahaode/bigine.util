@@ -122,7 +122,7 @@ var Util;
  * @license   GPL-3.0
  * @file      Q.ts
  */
-/// <reference path="../include/tsd.d.ts" />
+/// <reference path="../../include/tsd.d.ts" />
 /// <reference path="_iterator.ts" />
 var Util;
 (function (Util) {
@@ -156,7 +156,7 @@ var Util;
  * @license   GPL-3.0
  * @file      Env.ts
  */
-/// <reference path="../include/tsd.d.ts" />
+/// <reference path="../../include/tsd.d.ts" />
 var Util;
 (function (Util) {
     Util.ENV = {
@@ -256,7 +256,7 @@ var Util;
  * @license   GPL-3.0
  * @file      Remote.ts
  */
-/// <reference path="../include/XDomainRequest.d.ts" />
+/// <reference path="../../include/XDomainRequest.d.ts" />
 /// <reference path="ENV.ts" />
 /// <reference path="ISuccessCallback.ts" />
 /// <reference path="IFailureCallback.ts" />

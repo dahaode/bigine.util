@@ -7,7 +7,7 @@
  * @file      Env.ts
  */
 
-/// <reference path="../include/tsd.d.ts" />
+/// <reference path="../../include/tsd.d.ts" />
 
 namespace Util {
     export interface IEnvType {

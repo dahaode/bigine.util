@@ -13,5 +13,5 @@
 /// <reference path="IEmittable.ts" />
 
 namespace Util {
-    export var version: string = '${BIGINE_UTIL_VERSION}';
+    export var version: string = '${BIGINE_MODULE_VERSION}';
 }

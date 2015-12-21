@@ -7,7 +7,7 @@
  * @file      Q.ts
  */
 
-/// <reference path="../include/tsd.d.ts" />
+/// <reference path="../../include/tsd.d.ts" />
 /// <reference path="_iterator.ts" />
 
 namespace Util {
