@@ -544,7 +544,7 @@ var Util;
 /// <reference path="IEmittable.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.2.0';
+    Util.version = '0.2.2';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map

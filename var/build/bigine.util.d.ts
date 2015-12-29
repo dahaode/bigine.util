@@ -1,5 +1,3 @@
-/// <reference path="../../include/tsd.d.ts" />
-/// <reference path="../../include/XDomainRequest.d.ts" />
 declare namespace __Bigine_Util {
     interface IArrayIterator<T, U> {
         (element: T, index?: number, array?: T[]): U;

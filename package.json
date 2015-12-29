@@ -1,6 +1,6 @@
 {
   "name": "bigine.util",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Bigine 引擎 Util 包。",
   "main": "var/build/bigine.util.js",
   "scripts": {
@@ -20,15 +20,11 @@
   },
   "homepage": "https://github.com/dahaode/bigine.util#readme",
   "files": [
-    "include",
+    "include/es6-promise/es6-promise.d.ts",
     "var/build/bigine.util.d.ts",
     "var/build/bigine.util.js*",
     "var/build/xhr.js"
   ],
-  "typescript": {
-    "main": "lib/@module.ts",
-    "definition": "var/build/bigine.util.d.ts"
-  },
   "typings": "var/build/bigine.util.d.ts",
   "dependencies": {
     "es6-promise": "^3.0.2"
