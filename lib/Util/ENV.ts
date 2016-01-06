@@ -2,9 +2,9 @@
  * 定义环境信息探测组件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      Env.ts
+ * @file      Util/Env.ts
  */
 
 /// <reference path="../../include/tsd.d.ts" />

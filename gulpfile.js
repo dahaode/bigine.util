@@ -14,7 +14,7 @@ $gulp.task('lint', function () {
 });
 
 $gulp.task('dist', function () {
-    var ts = $gulp.src('lib/' + ns + '/@module.ts')
+    var ts = $gulp.src('lib/@' + ns.toLowerCase() + '.ts')
             .pipe($smap.init())
             .pipe($tsc($tsc.createProject('tsconfig.json', {
                 outFile: pkg.name + '.js'
@@ -27,7 +27,7 @@ $gulp.task('dist', function () {
 });
 
 $gulp.task('tsd', ['lint'], function () {
-    var ts = $gulp.src('lib/' + ns + '/@module.ts')
+    var ts = $gulp.src('lib/@' + ns.toLowerCase() + '.ts')
             .pipe($tsc($tsc.createProject('tsconfig.json', {
                 declaration: true,
                 removeComments: true

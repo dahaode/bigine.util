@@ -2,34 +2,34 @@
  * 声明数组遍历函数接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IArrayIterator.ts
+ * @file      Util/IArrayIterator.ts
  */
 /**
  * 声明哈希表接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IHashTable.ts
+ * @file      Util/IHashTable.ts
  */
 /**
  * 声明对象遍历函数接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IObjectIterator.ts
+ * @file      Util/IObjectIterator.ts
  */
 /// <reference path="IHashTable.ts" />
 /**
  * 定义数组类工具方法。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      _iterator.ts
+ * @file      Util/_iterator.ts
  */
 /// <reference path="IArrayIterator.ts" />
 /// <reference path="IObjectIterator.ts" />
@@ -118,9 +118,9 @@ var Util;
  * 定义基于 Promise 的序列调度组件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      Q.ts
+ * @file      Util/Q.ts
  */
 /// <reference path="../../include/tsd.d.ts" />
 /// <reference path="_iterator.ts" />
@@ -152,9 +152,9 @@ var Util;
  * 定义环境信息探测组件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      Env.ts
+ * @file      Util/Env.ts
  */
 /// <reference path="../../include/tsd.d.ts" />
 var Util;
@@ -235,26 +235,26 @@ var Util;
  * 声明成功回调函数接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      ISuccessCallback.ts
+ * @file      Util/ISuccessCallback.ts
  */
 /// <reference path="IHashTable.ts" />
 /**
  * 声明失败回调函数接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IFailureCallback.ts
+ * @file      Util/IFailureCallback.ts
  */
 /**
  * 定义远端通信组件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      Remote.ts
+ * @file      Util/Remote.ts
  */
 /// <reference path="../../include/XDomainRequest.d.ts" />
 /// <reference path="ENV.ts" />
@@ -347,9 +347,9 @@ var Util;
  * 声明日志接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      ILogger.ts
+ * @file      Util/ILogger.ts
  */
 var Util;
 (function (Util) {
@@ -383,9 +383,9 @@ var Util;
  * 定义控制台日志记录器组件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      ConsoleLogger.ts
+ * @file      Util/ConsoleLogger.ts
  */
 /// <reference path="ILogger.ts" />
 var Util;
@@ -498,53 +498,53 @@ var Util;
  * 声明事件元信息接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IEventMetas.ts
+ * @file      Util/IEventMetas.ts
  */
 /// <reference path="IHashTable.ts" />
 /**
  * 声明事件接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IEvent.ts
+ * @file      Util/IEvent.ts
  */
 /// <reference path="IEventMetas.ts" />
 /**
  * 声明事件监听函数接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IEventListener.ts
+ * @file      Util/IEventListener.ts
  */
 /// <reference path="IEvent.ts" />
 /**
  * 声明事件宿主接口规范。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      IEmittable.ts
+ * @file      Util/IEmittable.ts
  */
 /// <reference path="IEventListener.ts" />
 /**
  * 定义包主程序文件。
  *
  * @author    郑煜宇 <yzheng@atfacg.com>
- * @copyright © 2015 Dahao.de
+ * @copyright © 2016 Dahao.de
  * @license   GPL-3.0
- * @file      @module.ts
+ * @file      Util.ts
  */
-/// <reference path="Q.ts" />
-/// <reference path="Remote.ts" />
-/// <reference path="ConsoleLogger.ts" />
-/// <reference path="IEmittable.ts" />
+/// <reference path="Util/Q.ts" />
+/// <reference path="Util/Remote.ts" />
+/// <reference path="Util/ConsoleLogger.ts" />
+/// <reference path="Util/IEmittable.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.2.2';
+    Util.version = '0.2.3';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map
