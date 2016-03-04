@@ -21,7 +21,7 @@ namespace Util {
          * 格式化。
          */
         export function format(url: string): string {
-            return ENV.Protocol + url.replace(/^.+\/\//, '//').replace(/\?.*$/, '');
+            return ENV.Protocol + url.replace(/^.+\/\//, '//');
         }
 
         /**

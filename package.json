@@ -1,6 +1,6 @@
 {
   "name": "bigine.util",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Bigine 引擎 Util 包。",
   "main": "var/build/bigine.util.js",
   "scripts": {

@@ -270,7 +270,7 @@ var Util;
          * 格式化。
          */
         function format(url) {
-            return Util.ENV.Protocol + url.replace(/^.+\/\//, '//').replace(/\?.*$/, '');
+            return Util.ENV.Protocol + url.replace(/^.+\/\//, '//');
         }
         Remote.format = format;
         /**
@@ -544,7 +544,7 @@ var Util;
 /// <reference path="Util/IEmittable.ts" />
 var Util;
 (function (Util) {
-    Util.version = '0.2.3';
+    Util.version = '0.2.4';
 })(Util || (Util = {}));
 module.exports=Util;
 //# sourceMappingURL=bigine.util.js.map
