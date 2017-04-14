@@ -191,6 +191,10 @@ var Util;
          */
         Mobile: false,
         /**
+         * 是否为苹果设备。
+         */
+        IOS: false,
+        /**
          * IE 浏览器。
          */
         MSIE: false
@@ -216,7 +220,7 @@ var Util;
             }
             else if (/msie|trident/.test(ua))
                 msie = true;
-            return [tablet || mobile, msie];
+            return [tablet || mobile, msie, 'ipad' == ios || 'ipod' == ios || 'iphone' == ios];
         };
         if (env.Window) {
             if ('https:' == location.protocol)
@@ -225,6 +229,7 @@ var Util;
             var desult = detect(), doc = document.documentElement;
             env.Mobile = desult[0];
             env.MSIE = desult[1];
+            env.IOS = desult[2];
             // window.devicePixelRatio @?x
             env.Screen.Width = desult[0] ? doc.clientWidth : screen.width;
             env.Screen.Height = desult[0] ? doc.clientHeight : screen.height;
@@ -491,7 +496,7 @@ var Util;
             method(contents.join(' '));
         };
         return ConsoleLogger;
-    })();
+    }());
     Util.ConsoleLogger = ConsoleLogger;
 })(Util || (Util = {}));
 /**

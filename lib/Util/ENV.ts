@@ -23,6 +23,7 @@ namespace Util {
         Protocol: string;
         Canvas: boolean;
         Mobile: boolean;
+        IOS: boolean;
         MSIE: boolean;
     }
 
@@ -58,6 +59,10 @@ namespace Util {
          */
         Mobile: false,
         /**
+         * 是否为苹果设备。
+         */
+        IOS: false,
+        /**
          * IE 浏览器。
          */
         MSIE: false
@@ -65,7 +70,7 @@ namespace Util {
     ((env: IEnvType) => {
         if (env.Node.JS)
             env.Node.Webkit = !!(('node-webkit' in process.versions) || ('atom-shell' in process.versions) || ('electron' in process.versions));
-        var detect: () => [boolean, boolean] = () => {
+        var detect: () => [boolean, boolean, boolean] = () => {
             var ua: string = navigator.userAgent.toLowerCase(),
                 pick: (pattern: RegExp) => string = (pattern: RegExp) => {
                     var match: string[] = ua.match(pattern);
@@ -88,7 +93,7 @@ namespace Util {
                     msie = true;
             } else if (/msie|trident/.test(ua))
                 msie = true;
-            return [tablet || mobile, msie];
+            return [tablet || mobile, msie, 'ipad' == ios || 'ipod' == ios || 'iphone' == ios];
         };
         if (env.Window) {
             if ('https:' == location.protocol)
@@ -98,6 +103,7 @@ namespace Util {
                 doc: HTMLElement = document.documentElement;
             env.Mobile = desult[0];
             env.MSIE = desult[1];
+            env.IOS = desult[2];
             // window.devicePixelRatio @?x
             env.Screen.Width = desult[0] ? doc.clientWidth : screen.width;
             env.Screen.Height = desult[0] ? doc.clientHeight : screen.height;

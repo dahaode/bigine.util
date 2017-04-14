@@ -34,6 +34,7 @@ declare namespace __Bigine_Util {
         Protocol: string;
         Canvas: boolean;
         Mobile: boolean;
+        IOS: boolean;
         MSIE: boolean;
     }
     var ENV: IEnvType;
